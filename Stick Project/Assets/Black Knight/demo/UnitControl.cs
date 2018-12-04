@@ -33,10 +33,10 @@ public class UnitControl : MonoBehaviour {
 			if (walkStartTime == 0) {
 				walkStartTime = Time.time;
 			}
-			float speed = 0.05f;
+			float speed = 1f;
 			float dis = 0.1f;
 			if (Time.time - walkStartTime > 2.0f) {
-				speed = 0.03f;
+				speed = 0.5f;
 				animator.SetTrigger("run");
 			} else {
 				animator.SetTrigger("walk");
