@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Weapon : MonoBehaviour
 {
-    
+
     public GameObject Fireball;
     public float moveSpeed = 40f;
 
@@ -19,12 +19,6 @@ public class Weapon : MonoBehaviour
     {
         if (Input.GetButtonDown("fire1"))
         {
-            SpawnFireball();
-
-        }
-
-        void SpawnFireball()
-        {
             for (int i = 0; i < 6; i++)
             {
                 float spawnY = Random.Range(9, 12);
@@ -33,8 +27,17 @@ public class Weapon : MonoBehaviour
 
                 Vector2 spawnPosition = new Vector2(spawnX, spawnY);
                 Instantiate(Fireball, spawnPosition, Quaternion.identity);
+
             }
         }
     }
 }
+
+
+        
+
+            
+        
+    
+
 
