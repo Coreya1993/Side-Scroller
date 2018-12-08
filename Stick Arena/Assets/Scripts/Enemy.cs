@@ -6,25 +6,29 @@ public class Enemy : MonoBehaviour {
 
     private int startHealth;
     private int health = 15;
-    private Quaternion startRotation;
-    private Vector3 position;
+    //private Quaternion startRotation;
+    //private Vector3 position;
 
 
-    public GameObject deathEffect;
+    
+    private GameObject deathEffect;
+
     public GameObject respawnEnemey;
 
-    private float spawnY = Random.Range
-                (Camera.main.ScreenToWorldPoint(new Vector2(0, 0)).y, Camera.main.ScreenToWorldPoint(new Vector2(0, Screen.height)).y);
-    private float spawnX = Random.Range
-                (Camera.main.ScreenToWorldPoint(new Vector2(0, 0)).x, Camera.main.ScreenToWorldPoint(new Vector2(Screen.width, 0)).x);
+
+    //private float spawnY = Random.Range
+                //(Camera.main.ScreenToWorldPoint(new Vector2(0, 0)).y, Camera.main.ScreenToWorldPoint(new Vector2(0, Screen.height)).y);
+    //private float spawnX = Random.Range
+                //(Camera.main.ScreenToWorldPoint(new Vector2(0, 0)).x, Camera.main.ScreenToWorldPoint(new Vector2(Screen.width, 0)).x);
 
     // Use this for initialization
 
     public void Start()
     {
         startHealth = health;
+        //Vector2 position = new Vector2(Random.Range(-10.0f, 10.0f), Random.Range(-10.0f, 10.0f));
 
-
+        //Instantiate(respawnEnemey, position, Quaternion.identity);
 
 
 
@@ -42,19 +46,20 @@ public class Enemy : MonoBehaviour {
 
                 Instantiate(deathEffect, transform.position, Quaternion.identity);
                 Destroy(gameObject);
-                KillAndReset();
+                Spawn();
 
         }
     }
 
-    void KillAndReset()
+    void Spawn()
     {
        
 
         health = startHealth;
-        Vector2 spawnPosition = new Vector2(spawnX, spawnY);
+        //Vector2 spawnPosition = new Vector2(spawnX, spawnY);
 
-        Instantiate(respawnEnemey, spawnPosition, Quaternion.identity);
+        Vector2 position = new Vector2(Random.Range(-10.0f , 10.0f), Random.Range(-10.0f, 10.0f));
+        Instantiate(respawnEnemey, position, Quaternion.identity);
         
 
        // transform.position = 
